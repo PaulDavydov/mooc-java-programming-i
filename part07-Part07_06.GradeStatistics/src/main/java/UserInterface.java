@@ -10,10 +10,12 @@ public class UserInterface {
         this.scanner = scanner;
     }
      public void start() {
-         System.out.println("hi");
+         System.out.println("Enter point totals, -1 stops:");
          readInput();
-         System.out.println(grades.average());
-         System.out.println(passingG());
+         System.out.println("Point average (all): " +grades.average());
+         System.out.println("Point average (passing): " + grades.averageP());
+         System.out.println("Pass percentage: " + grades.percentile());
+         printGradeDistri();
      }
      public void readInput() {
         while (true) {
@@ -28,17 +30,21 @@ public class UserInterface {
             grades.addNumber(num);
         }
      }
-
-     public double passingG() {
-         ArrayList<Integer> passing = new ArrayList<>();
-         int sum = 0;
-        for(int i = 0; i < grades.size(); i++) {
-            if(grades.getNum(i) > 50) {
-                passing.add(i);
-                sum += grades.getNum(i);
-            }
+     public static void printsStars(int stars) {
+        while (stars > 0) {
+            System.out.print("*");
+            stars--;
         }
-        double average = 1.0*sum/passing.size();
-        return average;
-     }
+    }
+    public void printGradeDistri() {
+        int grade = 5;
+        System.out.println("Grade distribution:");
+        while (grade >= 0) {
+            int stars = grades.numberOfGrades(grade);
+            System.out.print(grade + ": ");
+            printsStars(stars);
+            System.out.println("");
+            grade = grade -1;
+        }
+    }
 }
