@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Part01_34.Same" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="Same" />
+    <module name="Part01_34.Same" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
