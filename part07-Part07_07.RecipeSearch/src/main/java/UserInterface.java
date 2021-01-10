@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Scanner scanner;
+    private CookBook recipes;
     public UserInterface(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -13,7 +14,8 @@ public class UserInterface {
         System.out.println("File to read: ");
         String file = scanner.nextLine();
         ArrayList<CookBook> recipes = readFile(file);
-        System.out.println("Commands:\n" + "list - lists the recipes\n" + "stop - stops the program");
+        System.out.println("Commands:\n" + "list - lists the recipes\n" +
+                "stop - stops the program\n" + "find name - searches recipes by name\n");
         System.out.println("");
         while (true) {
             System.out.println("Enter command: ");
@@ -25,12 +27,17 @@ public class UserInterface {
                 System.out.println(recipes);
                 continue;
             }
-            
+            if(input.equals("find name")) {
+                System.out.println("Searched word:");
+                String nameInput= scanner.nextLine();
+                if(this.recipes.getRecipeName().contains(nameInput)) {
+                    System.out.println(this.recipes);
+                }
+            }
+
         }
     }
-    public void specificRecipe(String input) {
 
-    }
     public static ArrayList<CookBook> readFile(String file) {
         //Scanner scanner = new Scanner(System.in);
         ArrayList<CookBook> recipes = new ArrayList<>();
