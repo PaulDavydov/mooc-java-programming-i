@@ -30,8 +30,31 @@ public class UserInterface {
             if(input.equals("find name")) {
                 System.out.println("Searched word:");
                 String nameInput= scanner.nextLine();
-                if(this.recipes.getRecipeName().contains(nameInput)) {
-                    System.out.println(this.recipes);
+                System.out.println("Recipes:");
+                for (CookBook i : recipes) {
+                    if (i.containsName(nameInput)) {
+                        System.out.println(i);
+                    }
+                }
+            }
+            if(input.equals("find cooking time")) {
+                System.out.println("Max cooking time:");
+                int maxCook = Integer.valueOf(scanner.nextLine());
+                System.out.println("Recipes:");
+                for (CookBook i : recipes) {
+                    if (i.getCookTime() <= maxCook) {
+                        System.out.println(i);
+                    }
+                }
+            }
+            if (input.equals("find ingredient")) {
+                System.out.println("Ingredient:");
+                String ingreName = scanner.nextLine();
+                System.out.println("Recipes:");
+                for (CookBook i : recipes) {
+                    if(i.containIngredient(ingreName)) {
+                        System.out.println(i);
+                    }
                 }
             }
 

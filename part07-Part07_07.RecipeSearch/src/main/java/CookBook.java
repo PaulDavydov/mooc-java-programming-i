@@ -1,3 +1,4 @@
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class CookBook {
@@ -26,6 +27,18 @@ public class CookBook {
     }
     public String toString() {
         return this.recipeName + ", cooking time: " + this.cookTime;
+    }
+    public boolean containsName(String input) {
+        if (recipeName.contains(input)) {
+            return true;
+        }
+        return false;
+    }
+    public boolean containIngredient (String input) {
+        if(ingredients.contains(input)) {
+            return true;
+        }
+        return false;
     }
 
 }
